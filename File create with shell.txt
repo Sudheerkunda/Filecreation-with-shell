@@ -1,10 +1,9 @@
 #/bin/bash
 read -p "Please Enter The Filename:" FILENAME
-echo "The Filename you have entered is: $FILENAME"
-EXISTNAME=$(find / -name $FILENAME | cut -d "/" -f 2)
-if [ "$FILENAME" = "$EXISTNAME" ]
+FILE=$FILENAME
+if test -f "$FILE"; 
 then
-echo "file already exist"
-else
-echo "$(mkdir $FILENAME)"
+echo "$FILE exists."
+else 
+echo "$(mkdir $FILE)"
 fi
